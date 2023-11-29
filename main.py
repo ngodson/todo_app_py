@@ -2,6 +2,7 @@ import streamlit as st
 import functions
 
 todos = functions.get_todos()
+st.set_page_config(layout="wide")
 
 
 def add_todo():
@@ -16,7 +17,8 @@ def delete_item():
 
 
 st.title("Todo App")
-st.subheader("click on check boxes to delete item")
+st.write("click on boxes to <b>delete item</b>",
+         unsafe_allow_html=True)
 
 for index, todo in enumerate(todos):
     button = st.button(todo, key=todo)
